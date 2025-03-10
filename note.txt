@@ -1,0 +1,63 @@
+🛠️ Install Dependencies
+Run this command to install required libraries:
+
+bash
+Copy
+Edit
+pip install fastapi uvicorn scikit-learn pandas joblib
+🚀 Running the API
+Start the FastAPI server:
+
+bash
+Copy
+Edit
+uvicorn main:app --reload
+📤 Training the Model (API Request)
+Use Postman or cURL to send a POST request to /train/ with JSON data:
+
+Request
+json
+Copy
+Edit
+{
+  "data": [
+    {"monthly_spend": 50, "tenure": 12, "support_tickets": 2, "last_rating": 4, "churn": 1},
+    {"monthly_spend": 30, "tenure": 24, "support_tickets": 0, "last_rating": 5, "churn": 0},
+    {"monthly_spend": 70, "tenure": 6, "support_tickets": 4, "last_rating": 2, "churn": 1}
+  ]
+}
+Response
+json
+Copy
+Edit
+{
+  "message": "Model trained successfully",
+  "accuracy": 89.5
+}
+📥 Predicting Churn (API Request)
+Once trained, use /predict/ to predict a customer’s churn risk.
+
+Request
+json
+Copy
+Edit
+{
+  "monthly_spend": 50,
+  "tenure": 12,
+  "support_tickets": 2,
+  "last_rating": 4
+}
+Response
+json
+Copy
+Edit
+{
+  "churn": true,
+  "confidence": 85.6
+}
+🌍 Open API Docs
+FastAPI provides automatic API docs!
+📌 Open your browser and go to:
+🔗 http://127.0.0.1:8000/docs
+
+This project lets users train the model dynamically & predict churn from a web UI. Would you like me to guide you on integrating it with a frontend (React/Blazor)? 😊🚀
